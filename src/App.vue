@@ -1,11 +1,15 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/list">List</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app id="app">
+      <v-app-bar
+        id="nav"
+        max-height="60"
+        class="d-flex justify-center">
+        <router-link to="/list">List</router-link>
+      </v-app-bar>
+      <v-main>
+        <router-view/>
+      </v-main>
+  </v-app>
 </template>
 
 <style lang="scss">
@@ -18,14 +22,20 @@
 }
 
 #nav {
-  padding: 30px;
-
+  background-color: #f7bacf;
+  box-shadow: 0 0 10px #c48b9f;
   a {
     font-weight: bold;
-    color: #2c3e50;
+    margin: 0 10px;
+    color: #560027;
+    text-decoration: none;
 
     &.router-link-exact-active {
-      color: #42b983;
+      color: #ad1457;
+    }
+
+    &:hover {
+      color: #bc477b;
     }
   }
 }

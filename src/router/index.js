@@ -5,20 +5,20 @@ Vue.use(VueRouter);
 
 const routes = [
   {
+    path: '/',
+    redirect: '/list',
+    name: 'Redirect',
+  },
+  {
     path: '/list',
     name: 'List',
-    component: () => import(/* webpackChunkName: "about" */ '../views/List.vue'),
+    component: () => import('../views/List.vue'),
   },
-  // {
-  //   path: '/list/edit',
-  //   name: 'ListEdit',
-  //   component: () => import(/* webpackChunkName: "about" */ '../views/ListEdit.vue'),
-  // },
-  // {
-  //   path: '/list/add',
-  //   name: 'ListAdd',
-  //   component: () => import(/* webpackChunkName: "about" */ '../views/ListAdd.vue'),
-  // },
+  {
+    path: '/list/add',
+    name: 'ListAdd',
+    component: () => import('../views/ListAdd.vue'),
+  },
 ];
 
 const router = new VueRouter({
