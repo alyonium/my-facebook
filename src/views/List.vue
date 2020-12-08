@@ -2,31 +2,28 @@
   <v-container>
     <v-row>
       <v-col
-        cols="6"
+        cols="8"
+        offset="1"
         class="d-flex align-center mt-8">
         Quantity of users in my-facebook: {{ usersQuantity }}
       </v-col>
       <v-col
-        cols="6"
-        class="d-flex align-center mt-8">
-        <router-link to="/list/add">Add new user</router-link>
+        cols="3"
+        class="d-flex align-center mt-8 justify-end">
+        <router-link to="/list/add" class="redirect-link">Add new user</router-link>
       </v-col>
     </v-row>
-      <user @update-quantity="getQuantity"></user>
+    <user @update-quantity="getQuantity"></user>
   </v-container>
 </template>
 
 <script>
-// eslint-disable-next-line import/extensions
 import User from './User';
-// eslint-disable-next-line import/extensions
-import ListAdd from './ListAdd';
 
 export default {
   name: 'List',
   components: {
     User,
-    ListAdd,
   },
   data() {
     return {
@@ -41,6 +38,20 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 
+.redirect-link {
+  color: $link;
+  text-decoration: none;
+  padding: $link-padding;
+  border: 1px solid $link;
+
+  &:hover {
+    color: $link-hover;
+  }
+
+  &:active {
+    color: $link-active;
+  }
+}
 </style>

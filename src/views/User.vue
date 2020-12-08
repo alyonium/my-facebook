@@ -2,9 +2,10 @@
   <v-row>
   <v-col
     cols="3"
+    offset="1"
     v-for="user in users"
     :key="user.id"
-    class="d-flex flex-column user-card mt-8 ml-8 mb-8 mr-8">
+    class="d-flex flex-column user-card mt-8 mb-8">
     <div
       class="user-buttons d-flex justify-space-between">
       <button>Delete</button>
@@ -37,13 +38,27 @@ export default {
 };
 </script>
 
-<style scoped>
-.user-buttons {
+<style scoped lang="scss">
 
+button {
+  background-color: $button-background;
+  color: $button-color;
+  outline: none;
+  padding: $button-padding;
+  margin: $button-margin;
+  border-radius: $button-border-radius;
+
+  &:hover {
+    background-color: $button-hover;
+  }
+
+  &:active {
+    background-color: $button-active;
+  }
 }
 
 .user-card {
   width: 300px;
-  background-color: #42b983;
+  background-color: $card-background;
 }
 </style>

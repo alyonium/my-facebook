@@ -13,29 +13,28 @@
 </template>
 
 <style lang="scss">
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
 }
 
 #nav {
-  background-color: #f7bacf;
-  box-shadow: 0 0 10px #c48b9f;
+  background-color:$header-background;
+  box-shadow: 0 0 10px $header-box-shadow;
   a {
     font-weight: bold;
-    margin: 0 10px;
-    color: #560027;
+    color: $link;
     text-decoration: none;
 
     &.router-link-exact-active {
-      color: #ad1457;
+      color: $link-active;
     }
 
     &:hover {
-      color: #bc477b;
+      color: $link-hover;
     }
   }
 }
