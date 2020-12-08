@@ -10,7 +10,7 @@
       <v-col
         cols="3"
         class="d-flex align-center mt-8 justify-end">
-        <button class="redirect-button" @click="addNewUser()">Save</button>
+        <button class="redirect-button" @click="saveUser()">Save</button>
       </v-col>
     </v-row>
     <v-row>
@@ -32,24 +32,32 @@
 import axios from 'axios';
 
 export default {
-  name: 'ListAdd',
+  name: 'ListEdit',
   data() {
     return {
       name: '',
-      age: null,
+      age: 0
     };
   },
+  mounted() {
+    axios
+      .get(`http://localhost:3000/get/${this.$route.params.id}`)
+      .then(response => {
+        this.name = response.data.name;
+        this.age = response.data.age;
+      });
+  },
   methods: {
-    addNewUser() {
+    saveUser() {
       axios
-        .post('http://localhost:3000/create', {
+        .put(`http://localhost:3000/edit/${this.$route.params.id}`, {
           name: this.name,
           age: this.age
         })
         .then(() => {
           this.$router.push('/list');
         });
-    }
+    },
   }
 };
 </script>

@@ -19,6 +19,11 @@ const routes = [
     name: 'ListAdd',
     component: () => import('../views/ListAdd.vue'),
   },
+  {
+    path: '/list/edit/:id',
+    name: 'ListEdit`',
+    component: () => import('../views/ListEdit.vue'),
+  },
 ];
 
 const router = new VueRouter({

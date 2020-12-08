@@ -8,8 +8,8 @@
     class="d-flex flex-column user-card mt-8 mb-8">
     <div
       class="user-buttons d-flex justify-space-between">
-      <button>Delete</button>
-      <button>Edit</button>
+      <button @click="deleteUser(user)">Delete</button>
+      <button @click="editUser(user)">Edit</button>
     </div>
       <span>name: {{ user.name }}</span>
       <span>age: {{ user.age }}</span>
@@ -35,6 +35,23 @@ export default {
         this.$emit('update-quantity', this.users.length);
       });
   },
+  methods: {
+    deleteUser(user) {
+      axios
+        .delete(`http://localhost:3000/remove/${user.id}`)
+        .then(() => {
+          axios
+            .get('http://localhost:3000/getAll')
+            .then(response => {
+              this.users = response.data;
+              this.$emit('update-quantity', this.users.length);
+            });
+        });
+    },
+    editUser(user) {
+      this.$router.push(`/list/edit/${user.id}`);
+    }
+  }
 };
 </script>
 
