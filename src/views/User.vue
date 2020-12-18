@@ -29,7 +29,7 @@ export default {
   },
   mounted() {
     axios
-      .get('http://localhost:3000/getAll')
+      .get('https://facebook-back.herokuapp.com/getAll')
       .then(response => {
         this.users = response.data;
         this.$emit('update-quantity', this.users.length);
@@ -38,10 +38,10 @@ export default {
   methods: {
     deleteUser(user) {
       axios
-        .delete(`http://localhost:3000/remove/${user.id}`)
+        .delete(`https://facebook-back.herokuapp.com/remove/${user.id}`)
         .then(() => {
           axios
-            .get('http://localhost:3000/getAll')
+            .get('https://facebook-back.herokuapp.com/getAll')
             .then(response => {
               this.users = response.data;
               this.$emit('update-quantity', this.users.length);

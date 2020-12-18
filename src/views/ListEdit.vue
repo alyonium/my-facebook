@@ -41,7 +41,7 @@ export default {
   },
   mounted() {
     axios
-      .get(`http://localhost:3000/get/${this.$route.params.id}`)
+      .get(`https://facebook-back.herokuapp.com/get/${this.$route.params.id}`)
       .then(response => {
         this.name = response.data.name;
         this.age = response.data.age;
@@ -50,7 +50,7 @@ export default {
   methods: {
     saveUser() {
       axios
-        .put(`http://localhost:3000/edit/${this.$route.params.id}`, {
+        .put(`https://facebook-back.herokuapp.com/edit/${this.$route.params.id}`, {
           name: this.name,
           age: this.age
         })

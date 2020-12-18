@@ -42,7 +42,7 @@ export default {
   methods: {
     addNewUser() {
       axios
-        .post('http://localhost:3000/create', {
+        .post('https://facebook-back.herokuapp.com/create', {
           name: this.name,
           age: this.age
         })
