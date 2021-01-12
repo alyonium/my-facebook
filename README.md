@@ -1,1 +1,1 @@
-https://alyonium.github.io/my-facebook/list 🖱️
+https://alyonium.github.io/my-facebook/ 🖱️
